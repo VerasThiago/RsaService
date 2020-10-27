@@ -25,6 +25,8 @@
   "bugs": {
     "url": "https://github.com/VerasThiago/RsaService/issues"
   },
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "homepage": "https://github.com/VerasThiago/RsaService#readme",
   "dependencies": {
     "@types/jest": "^26.0.3",
