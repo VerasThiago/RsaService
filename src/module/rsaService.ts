@@ -3,29 +3,29 @@ import * as crypto from 'crypto'
 export class RsaService {
   private static singleton: RsaService
 
-  public static getSingleton(algorithm?: string, key?: string , iv_length?: string): RsaService {
+  public static getSingleton(algorithm?: string, key?: string, ivLength?: string): RsaService {
     if (RsaService.singleton) {
       return RsaService.singleton
     }
 
-    RsaService.singleton = new RsaService(algorithm, key, iv_length)
+    RsaService.singleton = new RsaService(algorithm, key, ivLength)
 
     return RsaService.singleton
   }
 
   private cipherAlgorithm: string
   private cipherKey: Buffer
-  private iv_length: number
+  private ivLength: number
 
-  constructor(algorithm: string, key: string , iv_length: string) {
+  constructor(algorithm: string, key: string, ivLength: string) {
     this.cipherAlgorithm = algorithm
     this.cipherKey = Buffer.from(key, 'base64')
-    this.iv_length = parseInt(iv_length, 10)
+    this.ivLength = parseInt(ivLength, 10)
   }
 
   public encrypt(text: string): string {
     try {
-      const iv: Buffer = crypto.randomBytes(this.iv_length)
+      const iv: Buffer = crypto.randomBytes(this.ivLength)
       const cipher: crypto.Cipher = crypto.createCipheriv(this.cipherAlgorithm, this.cipherKey, iv)
       let encrypted: Buffer = cipher.update(text)
 
