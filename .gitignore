@@ -1,7 +1,7 @@
 .vscode
 coverage
 node_modules
-/build
+/dist
 *-debug.log
 *-error.log
 package-lock.json
