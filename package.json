@@ -1,40 +1,45 @@
 {
-  "name": "base-project",
-  "version": "0.0.0",
-  "description": "base project with all conf files",
+  "name": "@thiagoveras/rsa-service",
+  "version": "1.0.0",
+  "description": "Encrypter and Decrypter package",
   "scripts": {
     "exe": "node scripts/make-executable.js",
     "format": "prettier --config ./.prettierrc --write \"./src/**/*.{ts,tsx,js,jsx,json}\"",
     "lint:node": "yarn eslint ./src --cache --ext ts --config .eslintrc",
     "format-lint": "yarn format && yarn lint:node",
-    "build-clean": "rm -rf build",
+    "build-clean": "rm -rf dist",
     "build": "yarn build-clean && yarn tsc",
     "test": "jest",
     "prepublishOnly": "bash ./scripts/publishLock.sh",
     "ci:test": "yarn test --passWithNoTests --ci",
-    "start": "yarn build && node build/index.js",
+    "start": "yarn build && node dist/index.js",
     "build-incremental": "yarn tsc --incremental",
-    "ci:prettier-check": "prettier --check --config ./.prettierrc \"./src/**/*.{ts,tsx,js,jsx,json}\""
+    "ci:prettier-check": "prettier --check --config ./.prettierrc \"./src/**/*.{ts,tsx,js,jsx,json}\"",
+    "watch": "nodemon --watch 'src/**/*' -e ts,tsx --exec ts-node ./src/index.ts"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VerasThiago/TypeScriptBaseProject.git"
+    "url": "git+https://github.com/VerasThiago/RsaService.git"
   },
   "author": "Thiago Veras Machado",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/VerasThiago/TypeScriptBaseProject/issues"
+    "url": "https://github.com/VerasThiago/RsaService/issues"
   },
-  "homepage": "https://github.com/VerasThiago/TypeScriptBaseProject#readme",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "homepage": "https://github.com/VerasThiago/RsaService#readme",
   "dependencies": {
     "@types/jest": "^26.0.3",
+    "crypto": "^1.0.1",
     "eslint": "^7.3.1",
     "eslint-config-vtex": "^12.6.0",
     "jest": "^26.1.0",
     "nodemon": "^2.0.4",
     "prettier": "^2.0.5",
     "ts-jest": "^26.1.1",
+    "ts-node": "^9.0.0",
     "tsc": "^1.20150623.0",
-    "typescript": "^3.9.5"
+    "typescript": "^4.0.5"
   }
 }

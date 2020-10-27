@@ -1,7 +1,1 @@
-import { helloWorld } from './module/basicFunction'
-
-async function print() {
-  console.log(await helloWorld())
-}
-
-print()
+export * from './module/rsaService'
