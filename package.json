@@ -1,6 +1,6 @@
 {
   "name": "@thiagoveras/rsa-service",
-  "version": "0.0.0",
+  "version": "0.0.1-beta",
   "description": "Encrypter and Decrypter package",
   "scripts": {
     "exe": "node scripts/make-executable.js",
